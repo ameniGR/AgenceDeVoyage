@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        
+        {% block stylesheets %}
+        	<!-- Bootstrap -->
+        	<link rel="stylesheet" href="/css/fonts/bootstrap.min.css"/>
+        {% endblock %}
+        
+        {% block custompage_style %}
+       		<link href="/css/fonts/styles.css" rel="stylesheet">
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        	 <header>
+        		{% block menu %}
+        				{# Collect the nav links, forms, and other content for toggling #}
+        				<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-light">
+        					{{ knp_menu_render('main', {'currentClass': 'active'}) }}
+        					{{ knp_menu_render('user', {'currentClass': 'active'}) }}
+        				</nav>
+        		{% endblock %} {# menu #}
+             </header>
+            {% block main %}
+            <div class="row">
+				<div class="col-md-12">
+					<p>
+						<i>MAIN</i>
+					</p>
+				</div>
+			</div>
+        	{% endblock %} {# main #}
+
+	    {% endblock %} {# body #}
+
+	{% block footer %}
+	<div >
+	</div>
+	{% endblock %} {# footer #}
+</body>
+	{% block javascripts %}
+	 <script src="/js/bootstrap.min.js"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"</script>
+	{% endblock %} {# javascripts #}
+	{% block custompage_script %}
+	 <script> 
+    $(document).ready(function(){
+        $("#flip").click(function(){
+            $("#panel").slideDown("slow");
+        });
+    });
+    </script>
+    {% endblock %} {# custompage_scripts #}
+</html>

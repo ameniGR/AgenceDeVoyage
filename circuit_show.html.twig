@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+	
+	<h1>Circuit Programmé : {{programmation.circuit.description}}</h1>
+
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ programmation.circuit.id }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ programmation.circuit.description }}</td>
+        </tr>
+         <tr>
+            <th>Pays Depart</th>
+            <td>{{ programmation.circuit.paysDepart }}</td>
+        </tr>
+         <tr>
+            <th>Ville Depart</th>
+            <td>{{ programmation.circuit.villeDepart }}</td>
+        </tr>
+         <tr>
+            <th>Ville Arrivee</th>
+            <td>{{ programmation.circuit.villeArrivee }}</td>
+        </tr>
+         <tr>
+            <th>Duree Circuit</th>
+            <td>{{ programmation.circuit.dureeCircuit }}</td>
+        </tr>
+    </tbody>
+</table>
+
+{#
+<!--<div class="form-horizontal">
+    
+    	<div class="form-group row">
+    		<label class="col-sm-2 col-form-label">Id</label>
+    		<div class="col-sm-10">
+    		    <div class="form-control form-control-plaintext">{{ programmation.circuit.id }}</div>
+    		</div>
+    	</div>
+    	
+    	<div class="form-group row">
+    		<label class="col-sm-2 col-form-label-lg">Libellé</label>
+    		<div class="col-sm-10">
+    		    <div class="form-control form-control-plaintext form-control-lg">{{ programmation.circuit.description }}</div>
+    		</div>
+    	</div>
+    	
+    	<div class="form-group row">
+    		<label class="col-sm-2 col-form-label">Pays_Depart</label>
+    		<div class="col-sm-10">
+    		    <div class="form-control form-control-plaintext">{{ programmation.circuit.paysDepart }}</div>
+    		</div>
+    	</div>
+    	
+    	<div class="form-group row">
+    		<label class="col-sm-2 col-form-label">Ville_Depart</label>
+    		<div class="col-sm-10">
+    		    <div class="form-control form-control-plaintext">{{ programmation.circuit.villeDepart }}</div>
+    		</div>
+    	</div>
+    	
+    	<div class="form-group row">
+    		<label class="col-sm-2 col-form-label">Ville_Arrivee</label>
+    		<div class="col-sm-10">
+    		    <div class="form-control form-control-plaintext">{{ programmation.circuit.villeArrivee }}</div>
+    		</div>
+    	</div>
+    
+    </div> -->
+    <!-- form-horizontal </form>  -->  #}
+
+<table class="table">
+  <thead>
+    <tr>
+        <th>Numéro Etape</th>
+        <th>Ville Etape</th>
+        <th>Nombre Jours</th>
+    </tr>
+  </thead>
+
+  {%  for etape in programmation.circuit.etapes %}
+  <tr>
+    <td>{{ etape.numeroEtape }}</td>
+    <td>{{ etape.villeEtape }}</td>
+    <td>{{ etape.nombreJours }}</td>
+  </tr>
+  {% endfor %} {# etapes #}
+</table>
+
+<a href="{{ path('frontoffice_home') }}" class="btn btn-info btn-block" role="button">retour à l'accueil</a>
+
+	
+{% endblock %}
+

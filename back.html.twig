@@ -1,0 +1,18 @@
+{# templates/home.html.twig #}
+
+{# Template de la page d'accueil de l'application #}
+
+{% extends "base.html.twig" %}
+
+{% block title %}{{ parent() }} - Welcome{% endblock %}
+
+{% block main %}
+
+<h1>Bienvenue Administrateurs</h1>
+
+<h3>Modification des <a href= {{ path('admin_circuit_index') }} >Circuits</a></h3>
+
+<h3>Modification des <a href= {{ path('admin_etape_index') }} >Etapes</a></h3>
+
+{% endblock %} {# main #}
+
